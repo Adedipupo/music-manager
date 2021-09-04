@@ -14,7 +14,11 @@ exports.getAllMusics = async (req, res) => {
 
 exports.addNewMusic = async (req, res) => {
     try {
-        let music = await Music.find()
+        const music = new Music({
+            title: req.body.title,
+            artist: req.body.artist,
+            music: req.body.music
+        })
         
         
     } catch (error) {
