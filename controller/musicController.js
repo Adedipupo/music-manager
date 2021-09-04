@@ -22,6 +22,7 @@ exports.addNewMusic = async (req, res) => {
         
         let newMusic = await music.save();
         
+        res.status(200).json({ data: newMusic });
     } catch (error) {
         res.status(500).json(error);
     }
