@@ -7,7 +7,7 @@ const config = require("./config/db");
 const app = express();
 
 //configure database and mongoose
-mongoose.set("useCreateIndex", true);
+// mongoose.set("useCreateIndex", true);
 mongoose
   .connect(config.database, { useNewUrlParser: true })
   .then(() => {
@@ -26,6 +26,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use(morgan("dev")); // configire morgan
+
+app.use('/uploads', express.static('uploads'));
+
+
 // define first route
 app.get("/", (req, res) => {
   res.json("Hola MEVN devs...Assemble");
