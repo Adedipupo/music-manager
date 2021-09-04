@@ -2,7 +2,7 @@ let mongoose = require('mongoose')
 const Music = require('../model/Music')
 
 
-exports.getAllMusics = async (req, res) {
+exports.getAllMusics = async (req, res) => {
     try {
         let music = await Music.find()
         
