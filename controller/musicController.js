@@ -20,6 +20,7 @@ exports.addNewMusic = async (req, res) => {
             music: req.body.music
         })
         
+        let newMusic = await music.save();
         
     } catch (error) {
         res.status(500).json(error);
