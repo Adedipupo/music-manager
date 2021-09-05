@@ -2,6 +2,7 @@ const express = require("express");
 const PORT = process.env.PORT || 4000;
 const morgan = require("morgan");
 const cors = require("cors");
+const musicRoutes = require("./routes/music"); 
 const mongoose = require("mongoose");
 const config = require("./config/db");
 const app = express();
@@ -34,6 +35,9 @@ app.use('/uploads', express.static('uploads'));
 app.get("/", (req, res) => {
   res.json("Hola MEVN devs...Assemble");
 });
+app.use("/music", musicRoutes)
+
+
 app.listen(PORT, () => {
   console.log(`App is running on ${PORT}`);
 });
