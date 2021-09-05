@@ -20,7 +20,6 @@ exports.addNewMusic = async (req, res) => {
             music: req.file
         })
         let newMusic = await music.save();
-        console.log(newMusic);
         
         res.status(200).json({ data: newMusic });
     } catch (error) {
@@ -31,7 +30,7 @@ exports.addNewMusic = async (req, res) => {
 exports.deleteMusic = async (req, res) => {
     try {
         const id = req.params.musicId;
-        let result = await Music.remove({ _id: id });
+        let result = await Music.deleteOne({ _id: id });
         res.status(200).json(result);
     } catch (error) {
         res.status(500).json(error);
